@@ -15,6 +15,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class LoginFragment : Fragment(R.layout.fragment_login) {
+    private lateinit var username: String
+    private lateinit var password: String
     private lateinit var binding: FragmentLoginBinding
     private val viewModel: LoginViewModel by viewModels()
 
@@ -40,14 +42,11 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 val isPasswordValid = etPassword.validate()
 
                 if (isUsernameValid && isPasswordValid) {
-                    val username = etUsername.text.toString()
-                    val password = etPassword.text.toString()
+                    username = etUsername.text.toString()
+                    password = etPassword.text.toString()
 
                     viewModel.setAuthStateEvent(
-                        LoginViewModel.AuthStateEvent.LoginEvent(
-                            username,
-                            password
-                        )
+                        LoginViewModel.AuthStateEvent.LoginEvent(username, password)
                     )
                 }
             }
@@ -77,7 +76,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     }
 
     private fun loginSuccess() {
-        val action = LoginFragmentDirections.actionLoginFragmentToRechargeFragment()
+        val action = LoginFragmentDirections.actionLoginFragmentToRechargeFragment(username, password)
         findNavController().navigate(action)
     }
 

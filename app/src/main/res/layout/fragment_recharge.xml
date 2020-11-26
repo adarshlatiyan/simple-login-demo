@@ -108,6 +108,7 @@
         android:textStyle="bold" />
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -115,6 +116,7 @@
         android:weightSum="9">
 
         <RadioButton
+            android:id="@+id/rb10"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -127,6 +129,7 @@
             android:textSize="16sp" />
 
         <RadioButton
+            android:id="@+id/rb25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -139,6 +142,7 @@
             android:textSize="16sp" />
 
         <RadioButton
+            android:id="@+id/rb40"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="4dp"
@@ -147,7 +151,7 @@
             android:button="@null"
             android:gravity="center"
             android:paddingHorizontal="32dp"
-            android:text="25 EUR"
+            android:text="40 EUR"
             android:textSize="16sp" />
     </RadioGroup>
 
@@ -160,12 +164,14 @@
         android:textColor="@color/black"
         android:textSize="24sp" />
 
-    <EditText
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/etMobile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
         android:background="@drawable/et_rounded_background"
         android:hint="Mobile Number"
+        android:inputType="phone"
         android:paddingHorizontal="32dp"
         android:paddingVertical="8dp"
         android:textSize="20sp" />

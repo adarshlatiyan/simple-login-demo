@@ -19,6 +19,12 @@ fun TextInputEditText.validate(): Boolean {
                 return false
             }
         }
+        InputType.TYPE_CLASS_PHONE -> {
+            if (input.isEmpty()) {
+                error = "Mobile number can not be empty"
+                return false
+            }
+        }
     }
     return true
 }

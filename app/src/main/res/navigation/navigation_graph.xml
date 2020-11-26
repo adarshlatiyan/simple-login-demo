@@ -21,5 +21,27 @@
         android:id="@+id/rechargeFragment"
         android:name="com.example.loginflow.ui.recharge.RechargeFragment"
         android:label="fragment_recharge"
-        tools:layout="@layout/fragment_recharge" />
+        tools:layout="@layout/fragment_recharge" >
+        <action
+            android:id="@+id/action_rechargeFragment_to_couponFragment"
+            app:destination="@id/couponFragment" />
+        <argument
+            android:name="email"
+            app:argType="string" />
+        <argument
+            android:name="pass"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/couponFragment"
+        android:name="com.example.loginflow.ui.coupon.CouponFragment"
+        android:label="fragment_coupon"
+        tools:layout="@layout/fragment_coupon" >
+        <argument
+            android:name="mobile"
+            app:argType="string" />
+        <argument
+            android:name="coupon"
+            app:argType="string" />
+    </fragment>
 </navigation>
