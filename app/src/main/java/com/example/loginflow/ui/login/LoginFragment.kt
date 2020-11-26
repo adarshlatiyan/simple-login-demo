@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.loginflow.R
 import com.example.loginflow.databinding.FragmentLoginBinding
 import com.example.loginflow.util.DataState
+import com.example.loginflow.util.validate
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -35,15 +36,20 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun initView() {
         with(binding) {
             loginButton.setOnClickListener {
-                val username = etUsername.text.toString()
-                val password = etPassword.text.toString()
+                val isUsernameValid = etUsername.validate()
+                val isPasswordValid = etPassword.validate()
 
-                viewModel.setAuthStateEvent(
-                    LoginViewModel.AuthStateEvent.LoginEvent(
-                        username,
-                        password
+                if (isUsernameValid && isPasswordValid) {
+                    val username = etUsername.text.toString()
+                    val password = etPassword.text.toString()
+
+                    viewModel.setAuthStateEvent(
+                        LoginViewModel.AuthStateEvent.LoginEvent(
+                            username,
+                            password
+                        )
                     )
-                )
+                }
             }
         }
     }
