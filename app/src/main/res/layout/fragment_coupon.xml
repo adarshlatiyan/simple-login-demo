@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Mobile : "
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="24sp" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:text="Coupon : "
-        android:textColor="@color/black"
+        android:textColor="@color/text_color"
         android:textSize="24sp" />
 
 </LinearLayout>
